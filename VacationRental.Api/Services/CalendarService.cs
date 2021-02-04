@@ -24,9 +24,8 @@ namespace VacationRental.Api.Services
 
                 foreach (var booking in bookings.Values)
                 {
-                    var defaultDt = new DateTime();
                     var prepDayCount = rentals[booking.RentalId].PreparationTimeInDays;
-                    var bookingEndDate = prepDayCount > 0 ? booking.Start.AddDays(booking.Nights) : defaultDt;
+                    var bookingEndDate = prepDayCount > 0 ? booking.Start.AddDays(booking.Nights) : new DateTime();
                     var prepDaysEnd = bookingEndDate.AddDays(prepDayCount);
 
                     if (booking.RentalId == rentalId
