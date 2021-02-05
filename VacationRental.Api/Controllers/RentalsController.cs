@@ -29,12 +29,16 @@ namespace VacationRental.Api.Controllers
         [HttpPost]
         public ResourceIdViewModel Post(RentalBindingModel model)
         {
+            if(model.PreparationTimeInDays < 1)
+                throw new ApplicationException("Minimum of 1 day Prep time");
+
             var key = new ResourceIdViewModel { Id = _rentals.Keys.Count + 1 };
 
             _rentals.Add(key.Id, new RentalViewModel
             {
                 Id = key.Id,
-                Units = model.Units
+                Units = model.Units,
+                PreparationTimeInDays = model.PreparationTimeInDays
             });
 
             return key;
