@@ -1,7 +1,6 @@
 ﻿using Moq;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using VacationRental.Api.Controllers;
 using VacationRental.Api.Models;
 using VacationRental.Api.Services;
